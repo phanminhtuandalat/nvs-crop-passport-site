@@ -32,3 +32,52 @@ button.addEventListener("click", function () {
 });
 input.addEventListener("keydown", function(event){if(event.key==="Enter")button.click();});
 document.querySelector("#sample-url").href = "./lot.html?id=" + encodeURIComponent(demoCode);
+/* Public media are intentionally separate from private farm records. */
+const gallery = document.getElementById("media-gallery");
+if (gallery) {
+  fetch("./data/public_media.json", { cache: "no-store" })
+    .then(response => {
+      if (!response.ok) throw new Error("Media registry unavailable");
+      return response.json();
+    })
+    .then(data => {
+      const items = Array.isArray(data.approved_media) ? data.approved_media.filter(item =>
+        item.approval_status === "approved_public" &&
+        (item.media_type === "photo" || item.media_type === "video") &&
+        typeof item.public_url === "string" &&
+        (item.public_url.startsWith("./assets/") || item.public_url.startsWith("https://"))
+      ) : [];
+      if (!items.length) return;
+      gallery.replaceChildren();
+      for (const item of items) {
+        const article = document.createElement("article");
+        article.className = "media-card";
+        const link = document.createElement("a");
+        link.href = item.public_url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        if (item.media_type === "photo") {
+          const image = document.createElement("img");
+          image.src = item.public_url;
+          image.loading = "lazy";
+          image.alt = item.caption || "Ảnh hiện trường Chi's Farm";
+          link.append(image);
+        } else {
+          const poster = document.createElement("div");
+          poster.className = "media-video";
+          poster.textContent = "▶ Xem clip vườn";
+          link.append(poster);
+        }
+        const caption = document.createElement("div");
+        caption.className = "media-caption";
+        const name = document.createElement("strong");
+        name.textContent = item.caption || (item.media_type === "photo" ? "Ảnh hiện trường" : "Video hiện trường");
+        const dateText = document.createElement("small");
+        dateText.textContent = item.captured_on || "Ngày chụp chưa xác nhận";
+        caption.append(name, dateText);
+        article.append(link, caption);
+        gallery.append(article);
+      }
+    })
+    .catch(() => { /* Keep truthful empty-state message. */ });
+}
