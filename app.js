@@ -33,7 +33,7 @@ button.addEventListener("click", function () {
     : "./lot.html?id=" + encodeURIComponent(code);
 });
 input.addEventListener("keydown", function(event){if(event.key==="Enter")button.click();});
-document.querySelector("#sample-url").href = "./season.html?id=NVS-CF-BHD-20261019#video-cay-giong";
+document.querySelector("#sample-url").href = "./community.html";
 /* Public media are intentionally separate from private farm records. */
 const gallery = document.getElementById("media-gallery");
 if (gallery) {
