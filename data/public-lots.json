@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-10-18",
+  "notice": "Chưa có lô thu hoạch thực tế hoặc kiểm nghiệm được phê duyệt để công bố.",
+  "approved_lots": [],
+  "demo_record": {
+    "lot_id": "DEMO-BHD-2026-001",
+    "demo_only": true,
+    "season_id": "NVS-CF-BHD-20261019",
+    "product": "Bí hạt dẻ",
+    "farm": "Chi's Farm",
+    "status": "Bản xem thử, không phải lô đã thu hoạch",
+    "planting_date_planned": "2026-10-19",
+    "planting_date_actual": null,
+    "greenhouse_area_m2": 1000,
+    "plants_planned": 1100,
+    "quality_evidence": [],
+    "harvest_date": null
+  }
+}
