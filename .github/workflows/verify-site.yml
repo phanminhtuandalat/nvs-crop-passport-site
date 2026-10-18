@@ -1,0 +1,16 @@
+name: Verify NVS QR passport
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - name: Check out website source
+        uses: actions/checkout@v4
+      - name: Verify browser assets and real media via public Pages URL
+        run: python3 scripts/verify_public_site.py
