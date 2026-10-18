@@ -11,6 +11,14 @@ PAGES = {
     "index.html": [b"qr-season.svg", b"season.html?id=NVS-CF-BHD-20261019"],
     "assets/qr-season.svg": [b"<svg", b"<path"],
     "assets/videos/20261018_ChiFarm_CayGiong_Web.mp4": [b"ftyp"],
+    "demo-orders.html": [b"order-grid", b"demo-orders.js", b"CT Farm"],
+    "demo-order.html": [b"verify-result", b"demo-orders.js"],
+    "data/demo_orders.json": [b"DEMO-NVS-CTF-001", b"DEMO-NVS-LIM-002", b"DEMO-NVS-CEM-003", b"simulation_only"],
+    "assets/demo-orders.js": ["CẢNH BÁO NGUỒN HÀNG".encode(), b"demo_orders.json"],
+    "assets/demo-orders.css": [b"verify-flag", b"order-grid"],
+    "assets/qr-demo-ctfarm.svg": [b"<svg", b"id=\"qr-path\""],
+    "assets/qr-demo-lim.svg": [b"<svg", b"id=\"qr-path\""],
+    "assets/qr-demo-cem.svg": [b"<svg", b"id=\"qr-path\""],
 }
 
 def read(url):
@@ -30,7 +38,7 @@ for attempt in range(1, 16):
             if route.endswith(".mp4") and len(payload) < 50_000:
                 raise AssertionError("MP4 file missing or unusually small")
             print(f"PASS {route}: {len(payload)} bytes")
-        print("PASS: public QR passport, redirect, and seedling MP4 verified")
+        print("PASS: real season + all 3 demo buyer QR pages and media verified over public HTTP")
         sys.exit(0)
     except Exception as exc:
         print(f"attempt {attempt} failed: {exc}", flush=True)
