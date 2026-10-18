@@ -7,7 +7,16 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Tra cứu hộ chiếu sản phẩm NVS theo mã lô.">
   <title>Tra cứu lô | NVS Crop Passport</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=season20261018">
+  <script>
+  /* Older printed demo QR codes now lead to the real farm-season diary. */
+  (function() {
+    var code = (new URLSearchParams(location.search).get("id") || "").trim().toUpperCase();
+    if (code === "DEMO-NVS-0001" || code === "DEMO-BHD-2026-001" || code === "NVS-CF-BHD-20261019") {
+      location.replace("./season.html?id=NVS-CF-BHD-20261019#video-cay-giong");
+    }
+  })();
+  </script>
 </head>
 <body>
   <header class="site-header">
