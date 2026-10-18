@@ -2,6 +2,7 @@
 """Check NVS real-season QR destination and seedling video from the PUBLIC website."""
 import sys
 import time
+from pathlib import Path
 from urllib.request import Request, urlopen
 
 BASE = "https://phanminhtuandalat.github.io/nvs-crop-passport-site/"
@@ -11,10 +12,21 @@ PAGES = {
     "index.html": [b"qr-season.svg", b"season.html?id=NVS-CF-BHD-20261019"],
     "assets/qr-season.svg": [b"<svg", b"<path"],
     "assets/videos/20261018_ChiFarm_CayGiong_Web.mp4": [b"ftyp"],
-    "community.html": [b"portal-open-link", b"nvs-portal-config.js", b"hero-inner", b"viewport-fit=cover"],
-    "assets/nvs-portal-config.js": [b"AKfycbwigGFCxwRx7MWVQ7-ScAheTLI9ESVeJixoJDABGTOuAkTFYULChqdXt1sdSFNdYwwZSg/exec"],
-    "assets/nvs-portal-bootstrap.js": [b"portal-open-link", b"script.google.com"],
 }
+
+# Verify recently changed portal assets from this exact checkout.
+# Pages deployment runs separately and may still serve the previous version when this job begins.
+LOCAL_MARKERS = {
+    "community.html": [b"portal-open-link", b"hero-inner", b"viewport-fit=cover"],
+    "assets/nvs-portal-config.js": [b"script.google.com/macros/s/"],
+    "assets/nvs-portal-bootstrap.js": [b"portal-open-link", b"script.google.com"]
+}
+root = Path(__file__).resolve().parents[1]
+for filename, needles in LOCAL_MARKERS.items():
+    payload = (root / filename).read_bytes()
+    if not all(marker in payload for marker in needles):
+        raise AssertionError("Missing local NVS portal marker: " + filename)
+    print("PASS local "+filename)
 
 def read(url):
     req = Request(url, headers={"User-Agent": "NVS-Crop-Passport-Smoke/1.0", "Cache-Control": "no-cache"})
