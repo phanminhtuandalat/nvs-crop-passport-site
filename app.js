@@ -1,5 +1,5 @@
 "use strict";
-const demoCode = "DEMO-BHD-2026-001";
+const demoCode = "DEMO-NVS-0001";
 const root = document.querySelector("#passport");
 const input = document.querySelector("#lot-input");
 const note = document.querySelector("#lookup-message");
@@ -28,7 +28,7 @@ button.addEventListener("click", function () {
   }
   // Lookup only against approved public registry when that registry exists.
   // At the pilot stage, the sole allowed identifier is explicitly DEMO.
-  window.location.search = "?lot=" + encodeURIComponent(code);
+  window.location.href = "./lot.html?id=" + encodeURIComponent(code);
 });
 input.addEventListener("keydown", function(event){if(event.key==="Enter")button.click();});
-document.querySelector("#sample-url").href = "?lot=" + encodeURIComponent(demoCode);
+document.querySelector("#sample-url").href = "./lot.html?id=" + encodeURIComponent(demoCode);
