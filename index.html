@@ -9,6 +9,14 @@
   <meta property="og:description" content="Thật, ngon, lành. Hồ sơ sản phẩm có chứng cứ và lịch sử mùa vụ minh bạch.">
   <title>NVS Crop Passport | Hộ chiếu nông sản</title>
   <link rel="stylesheet" href="./style.css">
+  <script>
+    (function() {
+      var q = new URLSearchParams(location.search).get('lot');
+      if (q === 'DEMO-NVS-0001' || q === 'DEMO-BHD-2026-001' || q === 'NVS-CF-BHD-20261019') {
+        location.replace('./season.html?id=NVS-CF-BHD-20261019#video-cay-giong');
+      }
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -87,11 +95,11 @@
             <div class="classification"><span>Tiêu chí phân loại do bên tư vấn cung cấp</span><div><strong>Loại 1: từ 300 g/trái</strong><strong>Loại 2: dưới 300 g/trái</strong></div></div>
           </div>
           <aside class="passport-side">
-            <div class="mini-kicker">MÃ QR MẪU</div>
-            <div class="qr-frame"><img id="qr" src="./assets/qr-demo.svg" alt="Mã QR dẫn tới hồ sơ minh họa" width="200" height="200"></div>
-            <strong class="qr-title">Quét để xem hồ sơ mẫu</strong>
-            <p>Mã QR này trỏ tới trang minh họa, không đại diện cho lô hàng thật.</p>
-            <a id="sample-url" href="lot.html?id=DEMO-NVS-0001" class="quiet-link">Mở liên kết QR ↗</a>
+            <div class="mini-kicker">MÃ QR HỒ SƠ MÙA VỤ</div>
+            <div class="qr-frame"><img id="qr" src="./assets/qr-season.svg" alt="Quét QR xem nhật ký mùa vụ thật và clip cây giống Chi’s Farm" width="200" height="200"></div>
+            <strong class="qr-title">Quét xem clip cây giống thật</strong>
+            <p>Mã QR mở hồ sơ mùa vụ thực tế Chi’s Farm; chưa phải mã lô thu hoạch.</p>
+            <a id="sample-url" href="./season.html?id=NVS-CF-BHD-20261019#video-cay-giong" class="quiet-link">Mở hộ chiếu mùa vụ ↗</a>
             <div class="lot-lookup"><label for="lot-input">Tra cứu mã lô công khai</label><div class="lot-form"><input id="lot-input" placeholder="Nhập mã lô" autocomplete="off" maxlength="80"><button id="lot-button" type="button">Tra cứu</button></div><p id="lookup-message" aria-live="polite">Hiện mới có mã minh họa DEMO-NVS-0001.</p></div>
           </aside>
         </div>
@@ -109,6 +117,6 @@
     <section class="section promise-section" id="promise"><div class="wrap promise-grid"><div><div class="section-kicker light">LỜI HỨA NVS</div><h2>Minh bạch không có nghĩa là <em>nói mọi thứ.</em></h2></div><div><p>Chúng tôi công khai những gì có bằng chứng và được phép chia sẻ. Chi phí sản xuất, thông tin cá nhân, công thức riêng và dữ liệu khách hàng vẫn được bảo vệ.</p><p>Không tự nhận chứng nhận hữu cơ, kết quả kiểm nghiệm hay trạng thái đạt chuẩn khi chưa có hồ sơ xác thực.</p><div class="promise-tags"><span>Đúng nguồn gốc</span><span>Có lịch sử</span><span>Chỉ công bố khi xác minh</span></div></div></div></section>
   </main>
   <footer><div class="wrap footer-grid"><div><strong class="footer-brand">NVS <span>Crop Passport</span></strong><p>Niềm Vui &amp; Sức Khỏe<br>Thật · Ngon · Lành</p></div><div><span>Giai đoạn thí điểm</span><p>Chi's Farm · Bí hạt dẻ · 2026</p></div><div><span>Thông tin</span><p>Dữ liệu minh họa chưa dùng làm căn cứ kiểm nghiệm hoặc chứng nhận chất lượng.</p></div></div><div class="wrap footer-bottom">© 2026 NVS · Hộ chiếu số mùa vụ, đang thử nghiệm.</div></footer>
-  <script src="./app.js" defer></script>
+  <script src="./app.js?v=20261018-real" defer></script>
 </body>
 </html>
