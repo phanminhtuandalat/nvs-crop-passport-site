@@ -1,0 +1,41 @@
+name: Check NVS mobile layout
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'community.html'
+      - 'assets/nvs-portal-*.js'
+      - 'scripts/check_mobile_layout.cjs'
+      - '.github/workflows/check-mobile-layout.yml'
+permissions:
+  contents: read
+jobs:
+  responsive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser driver
+        run: |
+          npm install --no-save playwright-core@1.55.0
+          if ! command -v google-chrome && ! command -v google-chrome-stable && ! command -v chromium; then
+            npx playwright install chromium
+          fi
+      - name: Serve local website
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/nvs-http.log 2>&1 &
+          sleep 2
+      - name: Verify no horizontal overflow on eight viewport widths
+        run: node scripts/check_mobile_layout.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nvs-responsive-screenshots
+          path: |
+            nvs-mobile-390.png
+            nvs-desktop-1440.png
+          if-no-files-found: ignore
