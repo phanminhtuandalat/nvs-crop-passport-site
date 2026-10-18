@@ -1,3 +1,3 @@
-// Leave blank until the Google Sheet owner authorizes and publishes the Apps Script web app.
+// Owner-supplied deployed Apps Script /exec URL. This is a public Web App URL, not the private Sheet.
 // Never put the Google Sheet URL, customer phone list or spreadsheet data here.
-window.NVS_APPS_SCRIPT_URL = "";
+window.NVS_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwigGFCxwRx7MWVQ7-ScAheTLI9ESVeJixoJDABGTOuAkTFYULChqdXt1sdSFNdYwwZSg/exec";
