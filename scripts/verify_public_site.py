@@ -11,6 +11,9 @@ PAGES = {
     "index.html": [b"qr-season.svg", b"season.html?id=NVS-CF-BHD-20261019"],
     "assets/qr-season.svg": [b"<svg", b"<path"],
     "assets/videos/20261018_ChiFarm_CayGiong_Web.mp4": [b"ftyp"],
+    "community.html": [b"not-ready", b"apps-portal", b"nvs-portal-config.js"],
+    "assets/nvs-portal-config.js": [b'NVS_APPS_SCRIPT_URL = ""'],
+    "assets/nvs-portal-bootstrap.js": [b"script", b"apps-portal"],
 }
 
 def read(url):

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="vi"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Cổng khách được mời Nông Dân NVS. Xem vườn, nhật ký mùa vụ và yêu cầu đặt hàng bằng số điện thoại được mời.">
+<meta name="theme-color" content="#164a37"><title>NVS · Cổng khách được mời</title>
+<style>
+:root{--leaf:#194b36;--ink:#1d3a30;--muted:#5e7465;--line:#dce6dc;--paper:#fbfaf5}*{box-sizing:border-box}
+body{margin:0;font:14px/1.7 system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--paper);color:var(--ink)}
+.wrap{width:min(1100px,calc(100% - 36px));margin-inline:auto}
+header{border-bottom:1px solid var(--line);background:white}
+.head{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:17px 0}
+.brand{display:flex;gap:11px;align-items:center;text-decoration:none;color:var(--leaf)}
+.mark{display:grid;place-items:center;width:42px;height:42px;border-radius:11px;background:var(--leaf);color:white;font-weight:900;font-size:24px}
+.brand strong{display:block;font-size:25px;letter-spacing:-.06em;line-height:1}.brand small{font-size:11px;font-weight:700}
+.head a:last-child{font-size:12px;text-decoration:none;color:#367353;font-weight:750}
+.hero{padding:45px 0;background:radial-gradient(circle at 90% 10%,#d4e8cf,transparent 55%),#edf3e7}
+.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#527d57;font-weight:900}
+h1{font:600 clamp(40px,6.5vw,70px)/1.1 Georgia,serif;letter-spacing:-.055em;margin:13px 0}
+.hero p{max-width:710px;color:#55725a;font-size:15px;margin:0}
+main{padding-bottom:65px}.gate{background:white;border:1px solid var(--line);border-radius:20px;padding:25px;margin:28px auto;box-shadow:0 14px 45px #1c432411}
+.gate h2{font:600 25px Georgia,serif;margin:0 0 12px}.gate p{color:var(--muted);font-size:13px}
+#apps-portal{width:100%;min-height:960px;border:0;background:#f8faf5;border-radius:13px}
+#not-ready{border-radius:14px;border:1px solid #e8dcb8;background:#fff9ea;color:#77612d;padding:20px 22px}
+#not-ready p{color:#756743;margin:7px 0;font-size:13px}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:35px 0}
+.info article{border:1px solid var(--line);border-radius:14px;padding:20px;background:#fff}
+.info h3{font:600 20px Georgia,serif;margin:0 0 9px}
+.info p{font-size:12px;color:#67796d;margin:0}
+footer{background:#173e2d;color:#dcebe0;padding:24px 0;font-size:11px}
+@media(max-width:720px){.info{grid-template-columns:1fr}.hero{padding:35px 0}#apps-portal{min-height:1300px}.gate{padding:15px}}
+</style>
+<script src="./assets/nvs-portal-config.js" defer></script>
+<script src="./assets/nvs-portal-bootstrap.js" defer></script>
+</head><body>
+<header><div class="wrap head"><a class="brand" href="./"><span class="mark">N</span><span><strong>NVS</strong><small>Niềm Vui &amp; Sức Khỏe</small></span></a><a href="./season.html?id=NVS-CF-BHD-20261019">Hồ sơ mùa vụ ↗</a></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="eyebrow">NÔNG DÂN NVS · NIỀM VUI VÀ SỨC KHỎE</div>
+<h1>Từ khu vườn<br>đến bàn ăn.</h1>
+<p>Dành cho những khách được NVS mời. Khám phá vườn, theo dõi nhật ký canh tác, đặt trước khi cây đang lớn và yêu cầu mua khi mùa vụ đang thu hoạch.</p></div></section>
+<div class="wrap">
+<section class="gate" aria-label="Cổng khách được mời">
+  <div id="not-ready" role="status">
+    <strong>Cổng khách đang trong giai đoạn thiết lập.</strong>
+    <p>Danh sách số điện thoại đã có trên Google Sheets riêng tư. Chủ NVS cần cấp quyền và triển khai Google Apps Script trước khi khách có thể nhập số điện thoại ở đây. Hiện chưa nhận đơn hàng.</p>
+  </div>
+  <iframe id="apps-portal" title="Cổng khách NVS bằng số điện thoại" hidden
+    referrerpolicy="strict-origin-when-cross-origin" loading="eager"></iframe>
+</section>
+<section class="info">
+<article><h3>01 · Chọn vườn</h3><p>Khách được mời xem các nông trại NVS đã được phê duyệt công khai.</p></article>
+<article><h3>02 · Xem mùa vụ</h3><p>Nhật ký thực tế, tình trạng đang trồng, chuẩn bị thu hoạch và đang thu hoạch.</p></article>
+<article><h3>03 · Gửi yêu cầu</h3><p>Đặt trước hoặc đặt mua đúng mùa vụ. QR theo đơn chỉ cấp sau khi NVS duyệt và đóng gói thực tế.</p></article>
+</section>
+<p style="font-size:12px;color:#728477;margin-bottom:38px">Lưu ý: Nhập số điện thoại là hình thức kiểm soát quyền truy cập đơn giản, không chứng minh quyền sở hữu SIM. NVS không công khai danh sách số điện thoại.</p>
+</div></main>
+<footer><div class="wrap">NVS · Thật – Ngon – Lành · Cổng khách kết nối Google Sheets và Google Apps Script, không dùng Supabase.</div></footer></body></html>
