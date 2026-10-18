@@ -2,6 +2,23 @@
   "schema_version": "1.0",
   "season_id": "NVS-CF-BHD-20261019",
   "last_updated": "2026-10-18",
-  "approved_media": [],
-  "notice": "Chưa có ảnh hoặc video hiện trường được chủ vườn duyệt công khai."
+  "approved_media": [
+    {
+      "media_id": "MED-CF-BHD-20261019-0001",
+      "season_id": "NVS-CF-BHD-20261019",
+      "media_type": "video",
+      "provider": "google_drive",
+      "drive_file_id": "1p3UmxK2pcS3cL26zjiGDDBzD25r2PUEe",
+      "public_url": "https://drive.google.com/file/d/1p3UmxK2pcS3cL26zjiGDDBzD25r2PUEe/view",
+      "caption": "Cây giống bí hạt dẻ trước ngày trồng",
+      "phase": "Chuẩn bị xuống giống",
+      "captured_on": null,
+      "received_on": "18/10/2026",
+      "description": "Clip cây giống trong khay ươm. Ngày quay thực tế chưa được xác nhận; dự kiến xuống giống 19/10/2026.",
+      "approval_status": "approved_public",
+      "source_access": "owner_only",
+      "publication_note": "Hồ sơ đã xuất hiện trên website; file gốc Google Drive hiện chỉ chủ sở hữu có quyền xem."
+    }
+  ],
+  "notice": "Đã ghi nhận 1 clip cây giống. Video đang lưu Google Drive riêng tư nên người ngoài có thể cần được cấp quyền xem."
 }
