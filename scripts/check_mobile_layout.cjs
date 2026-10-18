@@ -58,6 +58,23 @@ const { execSync } = require('child_process');
       if(w===1440) await page.screenshot({path:'nvs-desktop-1440.png',fullPage:true});
       await page.close();
     }
-    console.log('PASS: NVS responsive portal fits 320–1440px and CTA works.');
+    for (const route of ['index.html','season.html?id=NVS-CF-BHD-20261019']) {
+      for(const {w,h} of sizes) {
+        const page=await browser.newPage({ viewport:{width:w,height:h}, deviceScaleFactor:1 });
+        await page.route('https://fonts.googleapis.com/**', r=>r.abort());
+        await page.route('https://fonts.gstatic.com/**', r=>r.abort());
+        await page.goto('http://127.0.0.1:8765/'+route,{waitUntil:'domcontentloaded'});
+        const metrics=await page.evaluate(()=>({
+          innerWidth:window.innerWidth,
+          scrollWidth:document.documentElement.scrollWidth,
+          bodyWidth:document.body.scrollWidth,
+        }));
+        console.log(JSON.stringify({route,viewport:w,metrics}));
+        if(metrics.scrollWidth > metrics.innerWidth + 1)
+          throw Error('Horizontal overflow on '+route+' at '+w+'px');
+        await page.close();
+      }
+    }
+    console.log('PASS: portal + homepage + season diary are responsive 320–1440px.');
   } finally {if(browser) await browser.close();}
 })().catch(e=>{console.error(e);process.exit(1);});
