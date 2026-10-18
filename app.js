@@ -62,20 +62,48 @@ if (gallery) {
           image.loading = "lazy";
           image.alt = item.caption || "Ảnh hiện trường Chi's Farm";
           link.append(image);
+          article.append(link);
+        } else if (item.provider === "google_drive" && /^[a-zA-Z0-9_-]{10,80}$/.test(item.drive_file_id || "")) {
+          const player = document.createElement("div");
+          player.className = "media-player";
+          const frame = document.createElement("iframe");
+          frame.title = item.caption || "Video cây giống Chi's Farm";
+          frame.src = "https://drive.google.com/file/d/" + encodeURIComponent(item.drive_file_id) + "/preview";
+          frame.loading = "lazy";
+          frame.allow = "autoplay; fullscreen";
+          frame.allowFullscreen = true;
+          player.append(frame);
+          article.append(player);
+          link.className = "media-drive-link";
+          link.textContent = "↗ Xem video trên Google Drive";
+          article.append(link);
         } else {
           const poster = document.createElement("div");
           poster.className = "media-video";
           poster.textContent = "▶ Xem clip vườn";
           link.append(poster);
+          article.append(link);
         }
         const caption = document.createElement("div");
         caption.className = "media-caption";
         const name = document.createElement("strong");
         name.textContent = item.caption || (item.media_type === "photo" ? "Ảnh hiện trường" : "Video hiện trường");
         const dateText = document.createElement("small");
-        dateText.textContent = item.captured_on || "Ngày chụp chưa xác nhận";
+        dateText.textContent = item.captured_on ? ("Ngày quay: " + item.captured_on) : ("Tiếp nhận: " + (item.received_on || "Chưa rõ ngày"));
         caption.append(name, dateText);
-        article.append(link, caption);
+        if (item.description) {
+          const description = document.createElement("p");
+          description.className = "media-description";
+          description.textContent = item.description;
+          caption.append(description);
+        }
+        if (item.source_access === "owner_only") {
+          const restriction = document.createElement("p");
+          restriction.className = "media-restriction";
+          restriction.textContent = "Video hiện chỉ tài khoản có quyền trên Google Drive mới phát được. Chưa mở quyền xem công khai.";
+          caption.append(restriction);
+        }
+        article.append(caption);
         gallery.append(article);
       }
     })
