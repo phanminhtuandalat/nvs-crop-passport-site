@@ -28,10 +28,12 @@ button.addEventListener("click", function () {
   }
   // Lookup only against approved public registry when that registry exists.
   // At the pilot stage, the sole allowed identifier is explicitly DEMO.
-  window.location.href = "./lot.html?id=" + encodeURIComponent(code);
+  window.location.href = code === "NVS-CF-BHD-20261019"
+    ? "./season.html?id=NVS-CF-BHD-20261019#video-cay-giong"
+    : "./lot.html?id=" + encodeURIComponent(code);
 });
 input.addEventListener("keydown", function(event){if(event.key==="Enter")button.click();});
-document.querySelector("#sample-url").href = "./lot.html?id=" + encodeURIComponent(demoCode);
+document.querySelector("#sample-url").href = "./season.html?id=NVS-CF-BHD-20261019#video-cay-giong";
 /* Public media are intentionally separate from private farm records. */
 const gallery = document.getElementById("media-gallery");
 if (gallery) {
