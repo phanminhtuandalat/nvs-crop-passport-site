@@ -47,10 +47,16 @@
           "date": "18/10/2026",
           "title": "Khởi tạo hồ sơ",
           "detail": "Chuẩn bị triển khai vụ bí hạt dẻ, chưa ghi nhận thu hoạch thực tế."
+        },
+        {
+          "date": "18/10/2026",
+          "title": "Tiếp nhận clip cây giống",
+          "detail": "Video khay cây giống trước ngày xuống giống dự kiến. Ngày quay thực tế chưa được xác minh. Xem phần Nhật ký hình ảnh & video bên dưới."
         }
       ],
       "quality": "Không có kết quả kiểm nghiệm để công bố. Mọi thông tin đều là ví dụ minh họa.",
-      "public_note": "Không sử dụng mã demo để dán lên hàng hóa thương mại."
+      "public_note": "Không sử dụng mã demo để dán lên hàng hóa thương mại.",
+      "season_id": "NVS-CF-BHD-20261019"
     }
   ]
 }
