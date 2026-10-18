@@ -1,60 +1,174 @@
 <!doctype html>
-<html lang="vi"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Cổng khách được mời Nông Dân NVS. Xem vườn, nhật ký mùa vụ và yêu cầu đặt hàng bằng số điện thoại được mời.">
-<meta name="theme-color" content="#164a37"><title>NVS · Cổng khách được mời</title>
-<style>
-:root{--leaf:#194b36;--ink:#1d3a30;--muted:#5e7465;--line:#dce6dc;--paper:#fbfaf5}*{box-sizing:border-box}
-body{margin:0;font:14px/1.7 system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--paper);color:var(--ink)}
-.wrap{width:min(1100px,calc(100% - 36px));margin-inline:auto}
-header{border-bottom:1px solid var(--line);background:white}
-.head{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:17px 0}
-.brand{display:flex;gap:11px;align-items:center;text-decoration:none;color:var(--leaf)}
-.mark{display:grid;place-items:center;width:42px;height:42px;border-radius:11px;background:var(--leaf);color:white;font-weight:900;font-size:24px}
-.brand strong{display:block;font-size:25px;letter-spacing:-.06em;line-height:1}.brand small{font-size:11px;font-weight:700}
-.head a:last-child{font-size:12px;text-decoration:none;color:#367353;font-weight:750}
-.hero{padding:45px 0;background:radial-gradient(circle at 90% 10%,#d4e8cf,transparent 55%),#edf3e7}
-.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#527d57;font-weight:900}
-h1{font:600 clamp(40px,6.5vw,70px)/1.1 Georgia,serif;letter-spacing:-.055em;margin:13px 0}
-.hero p{max-width:710px;color:#55725a;font-size:15px;margin:0}
-main{padding-bottom:65px}.gate{background:white;border:1px solid var(--line);border-radius:20px;padding:25px;margin:28px auto;box-shadow:0 14px 45px #1c432411}
-.gate h2{font:600 25px Georgia,serif;margin:0 0 12px}.gate p{color:var(--muted);font-size:13px}
-#apps-portal{width:100%;min-height:960px;border:0;background:#f8faf5;border-radius:13px}
-#not-ready{border-radius:14px;border:1px solid #e8dcb8;background:#fff9ea;color:#77612d;padding:20px 22px}
-#not-ready p{color:#756743;margin:7px 0;font-size:13px}
-.info{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:35px 0}
-.info article{border:1px solid var(--line);border-radius:14px;padding:20px;background:#fff}
-.info h3{font:600 20px Georgia,serif;margin:0 0 9px}
-.info p{font-size:12px;color:#67796d;margin:0}
-footer{background:#173e2d;color:#dcebe0;padding:24px 0;font-size:11px}
-@media(max-width:720px){.info{grid-template-columns:1fr}.hero{padding:35px 0}#apps-portal{min-height:1300px}.gate{padding:15px}}
-</style>
-<script src="./assets/nvs-portal-config.js" defer></script>
-<script src="./assets/nvs-portal-bootstrap.js" defer></script>
-</head><body>
-<header><div class="wrap head"><a class="brand" href="./"><span class="mark">N</span><span><strong>NVS</strong><small>Niềm Vui &amp; Sức Khỏe</small></span></a><a href="./season.html?id=NVS-CF-BHD-20261019">Hồ sơ mùa vụ ↗</a></div></header>
-<main>
-<section class="hero"><div class="wrap"><div class="eyebrow">NÔNG DÂN NVS · NIỀM VUI VÀ SỨC KHỎE</div>
-<h1>Từ khu vườn<br>đến bàn ăn.</h1>
-<p>Dành cho những khách được NVS mời. Khám phá vườn, theo dõi nhật ký canh tác, đặt trước khi cây đang lớn và yêu cầu mua khi mùa vụ đang thu hoạch.</p></div></section>
-<div class="wrap">
-<section class="gate" aria-label="Cổng khách được mời">
-  <div id="not-ready" role="status">
-    <strong>Cổng khách đang trong giai đoạn thiết lập.</strong>
-    <p>Danh sách số điện thoại đã có trên Google Sheets riêng tư. Chủ NVS cần cấp quyền và triển khai Google Apps Script trước khi khách có thể nhập số điện thoại ở đây. Hiện chưa nhận đơn hàng.</p>
-  </div>
-  <div id="portal-access" hidden style="margin:0 0 18px;padding:16px 18px;background:#eaf3e8;border:1px solid #d2e5d0;border-radius:13px">
-    <a id="portal-open-link" target="_blank" rel="noopener noreferrer" href="#" style="display:inline-block;background:#194b36;color:#fff;font-size:14px;font-weight:800;text-decoration:none;border-radius:11px;padding:12px 19px">Mở cổng khách NVS bằng số điện thoại ↗</a>
-    <p style="font-size:12px;color:#496851;margin:10px 0 0">Nếu biểu mẫu Google bên dưới không hiển thị, hãy bấm nút trên để mở trực tiếp. Chỉ những số đã được NVS mời mới được xem danh sách vườn.</p>
-  </div>
-  <iframe id="apps-portal" title="Cổng khách NVS bằng số điện thoại" hidden
-    referrerpolicy="strict-origin-when-cross-origin" loading="eager"></iframe>
-</section>
-<section class="info">
-<article><h3>01 · Chọn vườn</h3><p>Khách được mời xem các nông trại NVS đã được phê duyệt công khai.</p></article>
-<article><h3>02 · Xem mùa vụ</h3><p>Nhật ký thực tế, tình trạng đang trồng, chuẩn bị thu hoạch và đang thu hoạch.</p></article>
-<article><h3>03 · Gửi yêu cầu</h3><p>Đặt trước hoặc đặt mua đúng mùa vụ. QR theo đơn chỉ cấp sau khi NVS duyệt và đóng gói thực tế.</p></article>
-</section>
-<p style="font-size:12px;color:#728477;margin-bottom:38px">Lưu ý: Nhập số điện thoại là hình thức kiểm soát quyền truy cập đơn giản, không chứng minh quyền sở hữu SIM. NVS không công khai danh sách số điện thoại.</p>
-</div></main>
-<footer><div class="wrap">NVS · Thật – Ngon – Lành · Cổng khách kết nối Google Sheets và Google Apps Script, không dùng Supabase.</div></footer></body></html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#153f30">
+  <meta name="description" content="NVS – Niềm Vui và Sức Khỏe. Khám phá nông trại, theo dõi nhật ký mùa vụ, gửi yêu cầu đặt trước và đặt mua nông sản được ghi nhận minh bạch.">
+  <meta property="og:title" content="Nông Dân NVS | Từ vườn đến bàn ăn">
+  <meta property="og:description" content="Cổng khách được mời của NVS – Thật, Ngon, Lành.">
+  <title>Cổng khách được mời | Nông Dân NVS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <style>
+    :root{--forest:#153f30;--forest2:#1d5c43;--mint:#dcebd7;--cream:#f8f8f3;--paper:#fff;--ink:#21382b;--muted:#6c796c;--edge:#dfe6d9;--yellow:#f2d996}
+    *{box-sizing:border-box}
+    html{min-width:320px;scroll-behavior:smooth;overflow-x:clip}
+    body{min-width:320px;margin:0;background:var(--cream);color:var(--ink);font:400 14px/1.7 "Be Vietnam Pro",system-ui,sans-serif;overflow-x:clip}
+    a{color:inherit}button,a{-webkit-tap-highlight-color:transparent}
+    a:focus-visible{outline:3px solid #6a996e;outline-offset:4px}
+    .container{width:min(1120px,calc(100% - 48px));margin-inline:auto;min-width:0}
+    .header{position:relative;z-index:10;background:#fff;border-bottom:1px solid #edf0ea}
+    .nav{min-height:84px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+    .logo-symbol{width:46px;height:46px;flex:none;display:grid;place-items:center;background:var(--forest);color:#e9f3e2;border-radius:13px;font:700 28px/1 "Fraunces",Georgia,serif}
+    .logo-lines{display:block;min-width:0}
+    .logo-lines b{display:block;font-weight:800;letter-spacing:.045em;font-size:21px;line-height:1.15;color:var(--forest)}
+    .logo-lines small{display:block;font-size:10px;font-weight:700;color:#6b836f;margin-top:3px;white-space:nowrap}
+    .nav-right{display:flex;align-items:center;gap:25px}
+    .nav-right a{font-size:12px;text-decoration:none;font-weight:700;color:#486351;white-space:nowrap}
+    .nav-right .nav-pill{padding:11px 16px;border-radius:100px;background:#ecf3e9;color:var(--forest)}
+    .hero{position:relative;isolation:isolate;overflow:hidden;background:#eaf1e4}
+    .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 600px 460px at 89% 12%,#d5e7c8 0%,transparent 75%);z-index:-1}
+    .hero-inner{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);align-items:center;gap:clamp(24px,4vw,70px);padding-block:clamp(52px,6vw,88px)}
+    .hero-copy,.access-card{min-width:0}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;max-width:100%;font-weight:800;font-size:10px;letter-spacing:.12em;color:#3c7652;text-transform:uppercase}
+    .eyebrow:before{content:"";width:8px;height:8px;flex:none;border-radius:100%;background:#449b61;box-shadow:0 0 0 5px #d0e6cc}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3{font-family:"Fraunces",Georgia,serif;letter-spacing:-.047em;font-weight:600}
+    h1{font-size:clamp(43px,5.4vw,70px);line-height:1.11;color:#1a4a35;margin:23px 0 23px}
+    h1 em{font-style:normal;color:#72966d}
+    .hero-lead{font-size:15px;line-height:1.9;color:#536c58;max-width:540px;margin-bottom:25px}
+    .brand-values{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .brand-values span{border:1px solid #c5d7bd;background:#f7faf4c9;border-radius:100px;padding:7px 12px;font-size:11px;font-weight:700;color:#40734c}
+    .access-card{background:#fff;border:1px solid #dbe7d5;border-radius:22px;box-shadow:0 27px 60px #153f301b;padding:clamp(24px,3.1vw,38px);position:relative}
+    .card-top{display:flex;gap:13px;align-items:center;margin-bottom:26px}
+    .entry-icon{width:48px;height:48px;border-radius:13px;background:#e7f1e5;color:#226a47;display:grid;place-items:center;flex:none;font-size:25px}
+    .overline{font-size:10px;font-weight:800;color:#61906a;letter-spacing:.13em;text-transform:uppercase}
+    .card-top strong{font-size:15px;font-weight:800;display:block;color:#234f37;margin-top:2px}
+    .access-card h2{font-size:clamp(27px,2.9vw,36px);margin:0 0 15px;line-height:1.22}
+    .access-card>p{font-size:13px;color:#667a67;line-height:1.9;margin-bottom:22px}
+    .phone-label{font-weight:800;font-size:11px;color:#54775c;letter-spacing:.05em;text-transform:uppercase;margin-bottom:9px}
+    .phone-preview{display:flex;align-items:center;gap:12px;border:1px solid #d7e4d6;background:#f8faf7;border-radius:11px;min-height:52px;padding:0 15px;margin-bottom:15px;font-size:14px;color:#718575}
+    .phone-preview:before{content:"◎";color:#559666;font-size:22px}
+    .action-button{display:flex;width:100%;min-height:54px;align-items:center;justify-content:center;gap:12px;text-align:center;border-radius:11px;text-decoration:none;font-weight:800;font-size:13px;background:var(--forest);color:#fff;padding:14px 18px;transition:background .2s,transform .2s}
+    .action-button:hover{background:#266448;transform:translateY(-1px)}
+    .action-button span:last-child{font-size:20px;line-height:1}
+    .card-foot{display:flex;align-items:flex-start;gap:8px;margin-top:17px;font-size:11px;color:#829082}
+    .card-foot span:first-child{flex:none;color:#47946c;font-weight:800}
+    .card-foot p{margin:0;line-height:1.7}
+    .site-alert{display:none;border:1px solid #ead9ae;background:#fff9e8;border-radius:12px;color:#75602b;font-size:12px;padding:15px;line-height:1.7}
+    .site-alert[aria-hidden="false"]{display:block}
+    .section{padding:72px 0}
+    .section-label{font-size:11px;color:#4b8260;letter-spacing:.14em;font-weight:800;text-transform:uppercase}
+    .section-heading{display:flex;justify-content:space-between;align-items:end;gap:22px;margin:10px 0 30px}
+    .section-heading h2{font-size:clamp(30px,3.6vw,43px);margin:0;line-height:1.2}
+    .section-heading p{max-width:375px;color:#758073;font-size:13px;margin:0}
+    .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .step{padding:26px 24px 25px;background:white;border:1px solid var(--edge);border-radius:17px;min-width:0}
+    .step-num{display:inline-grid;place-items:center;width:41px;height:41px;border:1px solid #d5e5d2;border-radius:12px;color:#548263;background:#edf5eb;font-size:12px;font-weight:800}
+    .step h3{font-size:21px;margin:18px 0 9px}
+    .step p{margin:0;color:#79857a;font-size:12px;line-height:1.85}
+    .promise{background:#153e30;color:#e9f5e9;overflow:hidden;position:relative}
+    .promise:before{content:"";position:absolute;width:400px;height:400px;border:1px solid #ffffff13;border-radius:50%;right:-135px;top:-180px;pointer-events:none}
+    .promise-inner{padding:57px 0;display:flex;justify-content:space-between;align-items:center;gap:40px;position:relative}
+    .promise h2{font-size:clamp(28px,3.5vw,41px);line-height:1.24;margin:12px 0}
+    .promise p{font-size:13px;color:#ccdfd0;max-width:620px;margin:0;line-height:1.9}
+    .promise .outline-link{display:inline-flex;align-items:center;justify-content:center;flex:none;text-align:center;text-decoration:none;border:1px solid #699381;color:#e8f2e6;border-radius:12px;padding:13px 20px;font-weight:800;font-size:12px}
+    .legal{padding:21px 0;background:#0e3024;color:#a3c0ab;font-size:11px}
+    .legal .container{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .legal a{color:#d9ead7;text-underline-offset:3px}
+    [hidden]{display:none!important}
+    @media(max-width:900px){.hero-inner{grid-template-columns:minmax(0,1fr);gap:28px}.hero-copy{max-width:660px}.access-card{max-width:620px;width:100%;margin-inline:auto}.section-heading{align-items:start}.promise-inner{align-items:flex-start}.nav-right{gap:14px}}
+    @media(max-width:640px){
+      .container{width:calc(100% - 32px)}
+      .nav{min-height:72px}.logo-symbol{width:40px;height:40px;font-size:25px}.logo-lines b{font-size:19px}.logo-lines small{font-size:9px}
+      .nav-right a:not(.nav-pill){display:none}.nav-right .nav-pill{font-size:10px;padding:9px 11px}
+      .hero-inner{padding-block:39px 48px;gap:27px}
+      h1{font-size:clamp(39px,10.6vw,55px);margin:20px 0}
+      .hero-lead{font-size:13px;line-height:1.95}
+      .access-card{padding:23px 20px;border-radius:17px;box-shadow:0 13px 30px #153f3014}
+      .section{padding:50px 0}
+      .section-heading{display:block}
+      .section-heading p{margin-top:13px}
+      .steps{grid-template-columns:minmax(0,1fr);gap:12px}
+      .step{padding:20px}.step h3{font-size:20px;margin-top:13px}
+      .promise-inner{padding-block:44px;display:block}
+      .promise .outline-link{margin-top:22px;width:100%}
+    }
+    @media(max-width:360px){.container{width:calc(100% - 24px)}.logo-lines small{display:none}.nav-right .nav-pill{font-size:9px;padding:8px 9px}.access-card{padding:20px 16px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.action-button{transition:none}}
+  </style>
+  <script src="./assets/nvs-portal-config.js?v=2" defer></script>
+  <script src="./assets/nvs-portal-bootstrap.js?v=2" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="./" aria-label="NVS - Trang chủ">
+        <span class="logo-symbol" aria-hidden="true">N</span>
+        <span class="logo-lines"><b>NVS</b><small>Niềm Vui &amp; Sức Khỏe</small></span>
+      </a>
+      <nav class="nav-right" aria-label="Điều hướng">
+        <a href="./season.html?id=NVS-CF-BHD-20261019">Nhật ký mùa vụ</a>
+        <a class="nav-pill" href="#vao-cong">Cổng khách được mời</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow">Nông Dân NVS · Kết nối trực tiếp</div>
+          <h1>Từ khu vườn<br>đến <em>bàn ăn.</em></h1>
+          <p class="hero-lead">Theo dõi nông sản đang được chăm sóc, xem nhật ký mùa vụ và chủ động gửi yêu cầu đặt trước, đặt mua từ những nông trại trong hệ thống NVS.</p>
+          <div class="brand-values" aria-label="Cam kết NVS"><span>Thật</span><span>Ngon</span><span>Lành</span><span>Minh bạch</span></div>
+        </div>
+        <section class="access-card" id="vao-cong" aria-labelledby="access-title">
+          <div class="card-top">
+            <div class="entry-icon" aria-hidden="true">↗</div>
+            <div><div class="overline">Khu vực khách NVS</div><strong>Quyền truy cập theo số điện thoại</strong></div>
+          </div>
+          <h2 id="access-title">Chào mừng anh/chị<br>đến với NVS.</h2>
+          <p>Chỉ cần số điện thoại đã được NVS mời. Không cần tạo tài khoản hoặc mật khẩu.</p>
+          <div class="phone-label">Tại bước tiếp theo</div>
+          <div class="phone-preview" aria-hidden="true">Nhập số điện thoại được mời</div>
+          <a class="action-button" id="portal-open-link" href="./" aria-label="Mở cổng NVS để nhập số điện thoại">
+            <span>Vào xem các vườn NVS</span><span aria-hidden="true">→</span>
+          </a>
+          <p id="portal-unavailable" class="site-alert" role="status" aria-hidden="true">Cổng truy cập đang được cấu hình. Xin thử lại sau.</p>
+          <div class="card-foot"><span aria-hidden="true">✓</span><p>Được quản lý bằng danh sách khách mời riêng tư. Không yêu cầu tài khoản Google của khách.</p></div>
+        </section>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-label">Một cách mua nông sản chủ động hơn</div>
+        <div class="section-heading">
+          <h2>Biết rõ mùa vụ.<br>Chọn đúng thời điểm.</h2>
+          <p>Từ lúc cây còn đang lớn đến khi thu hoạch, khách hàng theo dõi được những thông tin đã được nông trại công bố.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><span class="step-num">01</span><h3>Chọn nông trại</h3><p>Xem danh sách các vườn NVS, địa điểm và mùa vụ đang được công bố.</p></article>
+          <article class="step"><span class="step-num">02</span><h3>Xem nhật ký mùa vụ</h3><p>Kiểm tra tình trạng canh tác, hình ảnh, video và ngày thu hoạch dự kiến khi đã có dữ liệu xác nhận.</p></article>
+          <article class="step"><span class="step-num">03</span><h3>Gửi yêu cầu mua</h3><p>Đặt trước hoặc đặt mua khi nông trại cho phép. Đơn chỉ có hiệu lực sau khi NVS xét duyệt.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="promise">
+      <div class="container promise-inner">
+        <div>
+          <span class="section-label" style="color:#c3e29c">Niềm Vui và Sức Khỏe</span>
+          <h2>Thực tế ở vườn, minh bạch đến người ăn.</h2>
+          <p>QR truy xuất riêng theo đơn hàng chỉ được phát hành sau khi đơn được xác nhận và hàng thực tế đã đóng gói. Nhập số điện thoại để xem vườn không đồng nghĩa với việc xác thực danh tính người nhập.</p>
+        </div>
+        <a class="outline-link" href="./season.html?id=NVS-CF-BHD-20261019#video-cay-giong">Xem nhật ký bí hạt dẻ Chi's Farm ↗</a>
+      </div>
+    </section>
+  </main>
+  <footer class="legal">
+    <div class="container"><span>© 2026 NVS · Thật – Ngon – Lành.</span><span>Dùng Google Sheets &amp; Apps Script. Không kết nối Supabase.</span></div>
+  </footer>
+</body>
+</html>

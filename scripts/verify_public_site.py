@@ -11,7 +11,7 @@ PAGES = {
     "index.html": [b"qr-season.svg", b"season.html?id=NVS-CF-BHD-20261019"],
     "assets/qr-season.svg": [b"<svg", b"<path"],
     "assets/videos/20261018_ChiFarm_CayGiong_Web.mp4": [b"ftyp"],
-    "community.html": [b"portal-open-link", b"apps-portal", b"nvs-portal-config.js"],
+    "community.html": [b"portal-open-link", b"nvs-portal-config.js", b"hero-inner", b"viewport-fit=cover"],
     "assets/nvs-portal-config.js": [b"AKfycbwigGFCxwRx7MWVQ7-ScAheTLI9ESVeJixoJDABGTOuAkTFYULChqdXt1sdSFNdYwwZSg/exec"],
     "assets/nvs-portal-bootstrap.js": [b"script", b"apps-portal"],
 }
