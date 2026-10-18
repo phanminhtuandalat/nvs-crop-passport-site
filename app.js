@@ -56,7 +56,16 @@ if (gallery) {
         link.href = item.public_url;
         link.target = "_blank";
         link.rel = "noopener noreferrer";
-        if (item.media_type === "photo") {
+        if (item.media_type === "video" && item.provider === "github_pages" && item.public_url.startsWith("./assets/videos/")) {
+          const video = document.createElement("video");
+          video.className = "media-native-video";
+          video.controls = true;
+          video.preload = "metadata";
+          video.playsInline = true;
+          video.src = item.public_url;
+          video.setAttribute("aria-label", item.caption || "Video cây giống");
+          article.append(video);
+        } else if (item.media_type === "photo") {
           const image = document.createElement("img");
           image.src = item.public_url;
           image.loading = "lazy";
