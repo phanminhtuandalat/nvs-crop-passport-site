@@ -1,0 +1,33 @@
+name: Build three demo order QR codes
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'data/demo_orders.json'
+      - 'scripts/build_demo_qrs.py'
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install QR generator
+        run: python -m pip install 'qrcode==7.4.2'
+      - name: Generate demo QR files
+        run: python scripts/build_demo_qrs.py
+      - name: Commit generated QR assets if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/qr-demo-ctfarm.svg assets/qr-demo-lim.svg assets/qr-demo-cem.svg
+          if ! git diff --cached --quiet; then
+            git commit -m "Generate scan-ready NVS demo buyer QR assets"
+            git push origin HEAD:main
+          fi

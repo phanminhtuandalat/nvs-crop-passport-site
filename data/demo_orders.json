@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "description": "CHỈ DEMO — 3 giao dịch giả định. Không phải bán hàng, giao hàng hoặc phát hành tem thương mại thực tế.",
+  "season_id": "NVS-CF-BHD-20261019",
+  "farm_name": "Chi's Farm",
+  "product_name": "Bí hạt dẻ",
+  "generated_on": "2026-10-18",
+  "orders": [
+    {
+      "order_id": "DEMO-NVS-CTF-001",
+      "token": "NgGDpGH310V4oh-gyZP0Vg",
+      "buyer_display_name": "Công Ty CT Farm",
+      "quantity": 10,
+      "unit": "trái",
+      "quantity_display": "10 trái",
+      "qr_file": "./assets/qr-demo-ctfarm.svg",
+      "status": "simulation_only",
+      "lot_id": null,
+      "weight_kg": null
+    },
+    {
+      "order_id": "DEMO-NVS-LIM-002",
+      "token": "Al0SitULaWPusoBGlHyhHA",
+      "buyer_display_name": "LIM",
+      "quantity": 2,
+      "unit": "trái",
+      "quantity_display": "2 trái",
+      "qr_file": "./assets/qr-demo-lim.svg",
+      "status": "simulation_only",
+      "lot_id": null,
+      "weight_kg": null
+    },
+    {
+      "order_id": "DEMO-NVS-CEM-003",
+      "token": "ccCwLk2eGXOxyHfpviDT3Q",
+      "buyer_display_name": "CEM",
+      "quantity": 1,
+      "unit": "thùng",
+      "quantity_display": "1 thùng",
+      "qr_file": "./assets/qr-demo-cem.svg",
+      "status": "simulation_only",
+      "lot_id": null,
+      "weight_kg": null,
+      "unconfirmed": "Số trái và trọng lượng của thùng CEM chưa được cung cấp."
+    }
+  ]
+}
