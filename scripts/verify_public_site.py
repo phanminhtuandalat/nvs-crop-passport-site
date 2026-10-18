@@ -13,7 +13,7 @@ PAGES = {
     "assets/videos/20261018_ChiFarm_CayGiong_Web.mp4": [b"ftyp"],
     "community.html": [b"portal-open-link", b"nvs-portal-config.js", b"hero-inner", b"viewport-fit=cover"],
     "assets/nvs-portal-config.js": [b"AKfycbwigGFCxwRx7MWVQ7-ScAheTLI9ESVeJixoJDABGTOuAkTFYULChqdXt1sdSFNdYwwZSg/exec"],
-    "assets/nvs-portal-bootstrap.js": [b"script", b"apps-portal"],
+    "assets/nvs-portal-bootstrap.js": [b"portal-open-link", b"script.google.com"],
 }
 
 def read(url):
