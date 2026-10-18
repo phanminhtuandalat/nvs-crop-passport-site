@@ -6,7 +6,7 @@ Website GitHub Pages cho hộ chiếu sản phẩm công khai của NVS. **Khôn
 https://phanminhtuandalat.github.io/nvs-crop-passport-site/
 
 ## Mã QR thử nghiệm
-https://phanminhtuandalat.github.io/nvs-crop-passport-site/?lot=DEMO-BHD-2026-001
+https://phanminhtuandalat.github.io/nvs-crop-passport-site/lot.html?id=DEMO-NVS-0001
 
 **QUAN TRỌNG:** Đây chỉ là mã DEMO minh họa, chưa có lô bí thật được thu hoạch hoặc kiểm nghiệm. Tuyệt đối không in mã này lên sản phẩm đang bán.
 
