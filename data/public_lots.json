@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "last_updated": "2026-10-18",
+  "lots": [
+    {
+      "id": "DEMO-NVS-0001",
+      "is_demo": true,
+      "approval_status": "demo_only",
+      "title": "Bí hạt dẻ",
+      "farm": "Chi's Farm",
+      "brand": "NVS",
+      "season_label": "Vụ dự kiến tháng 10/2026",
+      "farm_location": "Đà Lạt, Lâm Đồng",
+      "summary": "Hồ sơ minh họa cho trải nghiệm truy xuất. Không phải một lô hàng có thật.",
+      "fields": [
+        [
+          "Mã hồ sơ",
+          "DEMO-NVS-0001"
+        ],
+        [
+          "Tình trạng mùa vụ",
+          "Chuẩn bị xuống giống"
+        ],
+        [
+          "Ngày xuống giống dự kiến",
+          "19/10/2026"
+        ],
+        [
+          "Ngày thu hoạch",
+          "Chưa có"
+        ],
+        [
+          "Khối lượng đã thu hoạch",
+          "Chưa có"
+        ],
+        [
+          "Phân loại thực tế",
+          "Chưa có"
+        ],
+        [
+          "Kiểm nghiệm",
+          "Chưa có kết quả được xác minh"
+        ]
+      ],
+      "events": [
+        {
+          "date": "18/10/2026",
+          "title": "Khởi tạo hồ sơ",
+          "detail": "Chuẩn bị triển khai vụ bí hạt dẻ, chưa ghi nhận thu hoạch thực tế."
+        }
+      ],
+      "quality": "Không có kết quả kiểm nghiệm để công bố. Mọi thông tin đều là ví dụ minh họa.",
+      "public_note": "Không sử dụng mã demo để dán lên hàng hóa thương mại."
+    }
+  ]
+}
