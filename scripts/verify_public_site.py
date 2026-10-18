@@ -19,6 +19,9 @@ PAGES = {
     "assets/qr-demo-ctfarm.svg": [b"<svg", b"id=\"qr-path\""],
     "assets/qr-demo-lim.svg": [b"<svg", b"id=\"qr-path\""],
     "assets/qr-demo-cem.svg": [b"<svg", b"id=\"qr-path\""],
+    "community.html": [b'id="invite-panel"', b'id="portal" hidden', b"assets/community.js"],
+    "assets/community.js": [b"nvs-customer-portal", b"request_order", b"sessionStorage"],
+    "assets/community.css": [b"invite-panel", b"season-card"],
 }
 
 def read(url):
@@ -38,6 +41,31 @@ for attempt in range(1, 16):
             if route.endswith(".mp4") and len(payload) < 50_000:
                 raise AssertionError("MP4 file missing or unusually small")
             print(f"PASS {route}: {len(payload)} bytes")
+        # Verify the connected staging backend is alive and denies uninvited users.
+        import json
+        from urllib.error import HTTPError
+        api = "https://hkuoxyvwovuvphggdlkn.supabase.co/functions/v1/nvs-customer-portal"
+        def post_action(payload):
+            request = Request(api,
+                data=json.dumps(payload).encode(),
+                headers={
+                    "Content-Type": "application/json",
+                    "Origin": "https://phanminhtuandalat.github.io",
+                    "User-Agent": "NVS-Portal-Smoke/1.0"
+                },
+                method="POST")
+            try:
+                with urlopen(request, timeout=22) as r:
+                    return r.status, json.loads(r.read())
+            except HTTPError as e:
+                return e.code, json.loads(e.read())
+        ping_code, ping_json = post_action({"action":"ping"})
+        assert ping_code == 200 and ping_json.get("login_required") is True, (ping_code, ping_json)
+        deny_code, deny_json = post_action({"action":"catalog"})
+        assert deny_code == 401 and "Phiên truy cập" in deny_json.get("error",""), (deny_code, deny_json)
+        wrong_code, wrong_json = post_action({"action":"redeem","phone":"+84000000000","code":"NVS-INVALID-TEST-CODE"})
+        assert wrong_code == 401, (wrong_code, wrong_json)
+        print("PASS invited backend: ping 200 / unauthorised catalog 401 / nonexistent invitation 401")
         print("PASS: real season + all 3 demo buyer QR pages and media verified over public HTTP")
         sys.exit(0)
     except Exception as exc:
