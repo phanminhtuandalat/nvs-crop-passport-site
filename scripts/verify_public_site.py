@@ -15,7 +15,7 @@ FILES = {
     "assets/qr-season.svg": [b"<svg", b"<path"],
     "community.html": [b"portal-open-link", b"hero-inner", b"viewport-fit=cover"],
     "assets/nvs-portal-config.js": [b"script.google.com/macros/s/", b"/exec"],
-    "assets/nvs-portal-bootstrap.js": [b"portal-open-link", b"script.google.com"],
+    "assets/nvs-portal-bootstrap.js": [b"portal-open-link", b"portal-unavailable"],
     "assets/videos/20261018_ChiFarm_CayGiong_Web.mp4": [b"ftyp"],
 }
 for path, required in FILES.items():
